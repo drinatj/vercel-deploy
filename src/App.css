@@ -1,0 +1,141 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+body{
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #1B2021;
+}
+
+.cont-lagu{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchContainer{
+  margin-top: 15px;
+  margin-right: 20px;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container1{
+  background-color: #dabdbe;
+  width: 210px;
+  margin: 15px 15px 10px 10px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+}
+
+.container1 p{
+  margin-top: 5px;
+  text-align: center;
+  overflow-wrap: break-word;
+
+}
+
+.albumName{
+  
+}
+
+.gambar{
+  width: 200px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+
+.btnSubmit{
+  width: 80px;
+  height: 20px;
+}
+
+.search{
+  border: 3px solid #dabdbe;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchButton {
+  width: 60px;
+  height: 36px;
+  border: 1px solid #dabdbe;
+  background: #dabdbe;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+  font-size: 12px;
+}
+
+.button {
+  padding: 5px 15px;
+  font-size: 12px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #1B2021;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px #999;
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.button:hover {background-color: #424546}
+
+.button:active {
+  background-color: #424546;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
