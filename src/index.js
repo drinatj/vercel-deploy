@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-// import Spotify from './Spotify.js';
+// import Spotify from './spotify.js';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

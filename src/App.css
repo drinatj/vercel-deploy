@@ -79,8 +79,14 @@ body{
 
 }
 
-.albumName{
-  
+.login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn--loginApp-link{
+  color: #fff;
 }
 
 .gambar{
