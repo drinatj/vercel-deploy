@@ -12,6 +12,7 @@ function App(){
   const [searchKeyword, setSearchKeyword] = useState()
   const [trackData, setTrackData] = useState()
   const [isAuthentic, setAuthentic] = useState(false)
+  const [selectedTrack, setSelectedTrack] = useState([])
 
   const getParamsFromUrl = (hash) => {
     const stringAfterHashtag = hash.substring(1)
@@ -77,6 +78,16 @@ function App(){
     })
   }
 
+  const handleSelectTrack = (trackData) => {
+    if (selectedTrack.includes(trackData)) {
+      setSelectedTrack([
+        ...selectedTrack.filter((uri) => uri !== trackData),
+      ]);
+    }else {
+      setSelectedTrack([...selectedTrack, trackData]);
+    }
+  }
+
   const renderShowTracksPage = () => {
     if (isAuthentic){
       let renderShowPage = (
@@ -87,9 +98,13 @@ function App(){
             <button className="searchButton" onClick={handleSearchPlaylist}>Search</button>
             </div>
             <div className="cont-lagu">
-              {trackData && trackData.map((track, index) => {
+              {trackData && 
+              trackData.map((track) => {
                 return(
-                  <Album key={track.id} images={track.album.images[1].url} name={track.name} artists={track.artists[0].name}/>
+                  <Album key={track.id} images={track.album.images[1].url} name={track.name} artists={track.artists[0].name}
+                  isSelected={selectedTrack.includes(track.uri)}
+                  onSelect={() => handleSelectTrack(track.uri)}
+                 />
                 )
               })}
             </div>

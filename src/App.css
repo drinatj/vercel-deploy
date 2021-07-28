@@ -72,6 +72,7 @@ body{
 .searchContainer{
   margin-top: 15px;
   margin-right: 20px;
+  margin-bottom: 20px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -118,7 +119,7 @@ body{
   width: 200px;
   margin-bottom: 5px;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .btnSubmit{
