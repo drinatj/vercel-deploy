@@ -6,6 +6,7 @@ import { authEndpoint, clientId, redirectUri, scopes } from "./config";
 // import Player from "./Player";
 import "./App.css";
 import Album from './Components/album/index';
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 
 function App(){
   const [accessToken, setAccessToken] = useState()
@@ -36,7 +37,7 @@ function App(){
       return (
         <div className="navbar">
           <h1 className="navBrand">Moosick</h1>
-          <a href="/">Create Playlist</a>
+          {/* <a href="/create-playlist">Create Playlist</a> */}
         </div>
       )
     }
@@ -127,10 +128,22 @@ function App(){
   }, [accessToken])
 
   return(
-    <div>
-      {renderAuthenticBtn()}
-      {renderShowTracksPage()}
-    </div>
+    <Router>
+      <Switch>
+      <Route path="/create-playlist">
+        {isAuthentic ? (
+          <></>
+        ) : (
+          <Redirect to="/"/>
+        )}
+        </Route>
+        <Route path="/">
+        {renderAuthenticBtn()}
+        {renderShowTracksPage()}
+        
+        </Route>
+      </Switch>
+    </Router>
   )
 }
 export default App;
