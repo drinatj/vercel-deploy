@@ -6,7 +6,7 @@ import { authEndpoint, clientId, redirectUri, scopes } from "./config";
 // import Player from "./Player";
 import "./App.css";
 import Album from './Components/album/index';
-import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 function App(){
   const [accessToken, setAccessToken] = useState()

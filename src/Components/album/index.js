@@ -1,3 +1,5 @@
+import React from "react";
+
 const Album = ({images, name, artists, isSelected, onSelect })=>{
     return(
         <div>
