@@ -35,17 +35,29 @@ function App(){
   const renderAuthenticBtn = () => {
     if (isAuthentic){
       return (
-        <div className="navbar">
-          <h1 className="navBrand">Moosick</h1>
-          {/* <a href="/create-playlist">Create Playlist</a> */}
+        <div >
+          <div className="navBar">
+            <h1 className="navBrand">Moosick</h1>
+            <div className="searchContainer">
+              <input type="text" placeholder="Search.." className="search" onChange={handleSetSearchKey} />
+              <button className="searchButton" onClick={handleSearchPlaylist}>Search</button>
+            </div>
+          </div>
+          <ul>
+            <li><a className="active" href="/">Home</a></li>
+            <li><a href="#news">Create Playlist</a></li>
+            <li><a href="#contact">Logout</a></li>
+          </ul>
         </div>
       )
     }
     else{
       return(
         <div className="login">
-          <h2>Moosick</h2>
+         <div className="tombollogin">
+         <h2>Moosick</h2>
           <button className="buttonLogin" onClick={handleLogin}>Login</button>
+         </div>
         </div>
       )
     }
@@ -94,10 +106,7 @@ function App(){
       let renderShowPage = (
         <div>
           <div>
-            <div className="searchContainer">
-            <input type="text" placeholder="Search.." className="search" onChange={handleSetSearchKey} />
-            <button className="searchButton" onClick={handleSearchPlaylist}>Search</button>
-            </div>
+            
             <div className="cont-lagu">
               {trackData && 
               trackData.map((track) => {
