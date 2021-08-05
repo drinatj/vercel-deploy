@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-// import * as $ from "jquery";
 import axios from 'axios'
 import { authEndpoint, clientId, redirectUri, scopes } from "./config";
-// import hash from "./hash";
-// import Player from "./Player";
 import "./App.css";
 import Album from './Components/album/index';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+
 
 function App(){
   const [accessToken, setAccessToken] = useState()
@@ -45,8 +44,8 @@ function App(){
           </div>
           <ul>
             <li><a className="active" href="/">Home</a></li>
-            <li><a href="#news">Create Playlist</a></li>
-            <li><a href="#contact">Logout</a></li>
+            <li><a href="#create">Create Playlist</a></li>
+            <li className="logout"><a href="#logout">Logout</a></li>
           </ul>
         </div>
       )
@@ -54,10 +53,18 @@ function App(){
     else{
       return(
         <div className="login">
-         <div className="tombollogin">
-         <h2>Moosick</h2>
-          <button className="buttonLogin" onClick={handleLogin}>Login</button>
-         </div>
+          <h2>Moosick</h2>
+          <Button 
+          style={{
+            borderRadius: 15,
+            backgroundColor: "#dabdbe",
+            padding: "10px 25px",
+            fontSize: "12px",
+            color: "#1B2021",
+          }}
+          variant="contained" color="primary" onClick={handleLogin}>
+            Login
+          </Button>
         </div>
       )
     }
