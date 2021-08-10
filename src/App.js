@@ -4,8 +4,13 @@ import { authEndpoint, clientId, redirectUri, scopes } from "./config";
 import "./App.css";
 import Album from './Components/album/index';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
-
+import {Button } from '@material-ui/core';
+import {useStyles} from './Components/material-ui/custom-ui';
+import Paper from '@material-ui/core/Paper';
+import InputBase from '@material-ui/core/InputBase';
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import SearchIcon from '@material-ui/icons/Search';
 
 function App(){
   const [accessToken, setAccessToken] = useState()
@@ -13,6 +18,7 @@ function App(){
   const [trackData, setTrackData] = useState()
   const [isAuthentic, setAuthentic] = useState(false)
   const [selectedTrack, setSelectedTrack] = useState([])
+  const classes = useStyles();
 
   const getParamsFromUrl = (hash) => {
     const stringAfterHashtag = hash.substring(1)
@@ -38,14 +44,23 @@ function App(){
           <div className="navBar">
             <h1 className="navBrand">Moosick</h1>
             <div className="searchContainer">
-              <input type="text" placeholder="Search.." className="search" onChange={handleSetSearchKey} />
-              <button className="searchButton" onClick={handleSearchPlaylist}>Search</button>
+              <Paper component="form" className={classes.root}>
+                <InputBase
+                  onChange={handleSetSearchKey} 
+                  className={classes.input}
+                  placeholder="Search"
+                />
+                <Divider className={classes.divider} orientation="vertical" />
+                <IconButton type="submit" className={classes.iconButton} aria-label="search" onClick={handleSearchPlaylist}>
+                  <SearchIcon />
+                </IconButton>
+              </Paper>
             </div>
           </div>
           <ul>
-            <li><a className="active" href="/">Home</a></li>
+            <li><a className="active" href="./create-playlist">Home</a></li>
             <li><a href="#create">Create Playlist</a></li>
-            <li className="logout"><a href="#logout">Logout</a></li>
+            <li className="logout"><a href="/">Logout</a></li>
           </ul>
         </div>
       )
@@ -54,16 +69,8 @@ function App(){
       return(
         <div className="login">
           <h2>Moosick</h2>
-          <Button 
-          style={{
-            borderRadius: 15,
-            backgroundColor: "#dabdbe",
-            padding: "10px 25px",
-            fontSize: "12px",
-            color: "#1B2021",
-          }}
-          variant="contained" color="primary" onClick={handleLogin}>
-            Login
+          <Button className={classes.buttonLogin} variant="contained" onClick={handleLogin}>
+          Login
           </Button>
         </div>
       )
@@ -113,7 +120,6 @@ function App(){
       let renderShowPage = (
         <div>
           <div>
-            
             <div className="cont-lagu">
               {trackData && 
               trackData.map((track) => {
